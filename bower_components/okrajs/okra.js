@@ -9,6 +9,7 @@
 
     var _listeners = {};
     var _providers = {};
+    var _useManualLoadedEvent = false;
 
     // TODO: Error handling
 
@@ -177,18 +178,24 @@
         return a.origin;
     };
 
-    // Send `childLoaded` event to the parent
-    if (window !== window.parent) {
-        // TODO: Check for possible security issues in allowing
-        //       referrer blindly
-        // TODO: Convert to a faster event, such as DOMReady
-        window.addEventListener('load', function () {
-            window.parent.postMessage({
-               type: "childLoaded"
-            }, _referrerToOrigin());
-        }, false);
+    var _emitChildLoadEvent = function () {
+        // Send `childLoaded` event to the parent
+        if (window !== window.parent) {
+            // TODO: Check for possible security issues in allowing
+            //       referrer blindly
+            // TODO: Convert to a faster event, such as DOMReady
+            window.addEventListener('load', function () {
+                window.parent.postMessage({
+                   type: "childLoaded"
+                }, _referrerToOrigin());
+            }, false);
+        }
+    };
+    
+    if (!_useManualLoadedEvent) {
+        _emitChildLoadEvent();
     }
-
+    
     var createInlet = function(frameName, origin) {
         var _messagesQueue = [];
 
@@ -380,7 +387,11 @@
 
     var Okra = {
         inlet: createInlet,
-        provide: createProvider
+        provide: createProvider,
+        emitLoadEvent: _emitChildLoadEvent,
+        useManualLoadEvent: function () {
+            _useManualLoadedEvent = true;
+        }
     };
 
     win.Okra = Okra;

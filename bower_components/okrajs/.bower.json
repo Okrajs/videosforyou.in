@@ -1,6 +1,6 @@
 {
   "name": "okrajs",
-  "version": "0.1.0",
+  "version": "0.2.0-beta",
   "homepage": "https://github.com/Okrajs/Okrajs",
   "authors": [
     "Omar Al-Ithawi <i@omardo.com>"
@@ -20,14 +20,14 @@
     "test",
     "tests"
   ],
-  "_release": "0.1.0",
+  "_release": "0.2.0-beta",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.0",
-    "commit": "37878f4bd59577043e0b5bfeccc1aca069168921"
+    "tag": "v0.2.0-beta",
+    "commit": "fe831202ea488f3d94f2e2205bfc7b3996f1d82c"
   },
   "_source": "git://github.com/Okrajs/Okrajs.git",
-  "_target": "~0.1.0",
+  "_target": "0.2.0-beta",
   "_originalSource": "okrajs",
   "_direct": true
 }

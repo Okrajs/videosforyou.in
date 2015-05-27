@@ -15,6 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "okrajs": "~0.1.0"
+    "okrajs": "0.2.0-beta"
   }
 }
