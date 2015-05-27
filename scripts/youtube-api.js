@@ -16,7 +16,7 @@
         
         var currentTimeInterval = setInterval(function () {
             currentTimeEvent.emit({
-                currentTime: player.getCurrentTime()
+                currentTime: video.getCurrentTime()
             });
         }, 500);
     }).allowReferrer();
@@ -28,7 +28,11 @@
     }).allowReferrer();
     
     Okra.provide('get', 'duration', function () {
-        return video.getDuration() || 0;
+        if (video.getDuration) {
+            return video.getDuration();        
+        }
+
+        return 0;
     }).allowReferrer();
     
     Okra.useManualLoadEvent();
