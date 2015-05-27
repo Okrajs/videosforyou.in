@@ -1,0 +1,23 @@
+{
+  "name": "okrajs",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Okrajs/Okrajs",
+  "authors": [
+    "Omar Al-Ithawi <i@omardo.com>"
+  ],
+  "description": "Simple Access Control for `postMessage` API in Unmodified Browsers",
+  "main": "okra.js",
+  "keywords": [
+    "access",
+    "control",
+    "postMessage"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
