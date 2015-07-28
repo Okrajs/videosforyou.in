@@ -169,13 +169,7 @@
     }, false);
 
     var _referrerToOrigin = function () {
-        if (!document.referrer) {
-            return null;
-        }
-
-        var a = document.createElement('a');
-        a.href = document.referrer;
-        return a.origin;
+        return 'https://okra-demo-app.omardo.com';
     };
 
     var _emitChildLoadEvent = function () {
